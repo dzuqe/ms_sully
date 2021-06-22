@@ -7,6 +7,8 @@ interface IWindow
   minimize();
   maximize();
   move();
+  update();
+  render(): HTMLElement;
 }
 
 export default IWindow;
