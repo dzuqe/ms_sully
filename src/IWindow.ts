@@ -3,11 +3,11 @@ interface IWindow
 
   open();
   close();
-  resize();
+  resize(width: number, height: number);
   minimize();
   maximize();
-  move();
-  update();
+  move(x: number, y: number);
+  update(event: MouseEvent);
   render(): HTMLElement;
 }
 

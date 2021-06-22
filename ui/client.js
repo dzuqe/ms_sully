@@ -12,7 +12,16 @@ class Window {
         this.height = 200;
         this.borderwidth = 1;
         this.elem = document.createElement('div');
-        this.update();
+        var title = document.createElement('div');
+        title.style.width = "100%";
+        title.style.height = "20px";
+        title.style.backgroundColor = "white";
+        title.innerText = "window title";
+        title.onmousedown = this.onmousedown.bind(this);
+        title.onmouseup = this.onmouseleave.bind(this);
+        this.ismousedown = false;
+        this.elem.appendChild(title);
+        this.update(null);
     }
     open() {
     }
@@ -24,21 +33,35 @@ class Window {
     maximize() {
         this.elem.style.display = 'block';
     }
-    resize() {
+    resize(width, height) {
+        this.width = width;
+        this.height = height;
     }
-    move() {
+    move(x, y) {
+        this.y = y;
+        this.x = x;
     }
     render() {
         // add title and controls 
         return this.elem;
     }
-    update() {
+    update(event) {
+        if (this.ismousedown) {
+            this.x = event.clientX;
+            this.y = event.clientY;
+        }
         this.elem.style.position = "absolute";
-        this.elem.style.left = `${this.x}`;
-        this.elem.style.top = `${this.y}`;
+        this.elem.style.left = `${this.x}px`;
+        this.elem.style.top = `${this.y}px`;
         this.elem.style.width = `${this.width}px`;
         this.elem.style.height = `${this.height}px`;
         this.elem.style.backgroundColor = `black`;
+    }
+    onmousedown() {
+        this.ismousedown = true;
+    }
+    onmouseleave() {
+        this.ismousedown = false;
     }
 }
 
@@ -72,7 +95,7 @@ class Panel {
             rt.appendChild(this.right_tray[i]);
         this.elem.appendChild(lt);
         this.elem.appendChild(rt);
-        this.update();
+        this.update(null);
     }
     onclick() {
         console.log("You clicked the panel");
@@ -88,7 +111,7 @@ class Panel {
         //this.elem.appendChild(this.right_tray):
         return this.elem;
     }
-    update() {
+    update(event) {
         this.elem.style.width = `${this.width}%`;
         this.elem.style.height = `${this.height}px`;
         this.elem.style.top = `0`;
@@ -100,21 +123,23 @@ class Panel {
 class WindowManager {
     constructor() {
         this.elem = document.createElement('div');
-        let panel = new Panel();
-        this.panels = new Array(panel);
-        let window = new Window();
-        this.windows = new Array(window);
-        this.update();
+        this.panels = new Array(new Panel());
+        this.windows = new Array(new Window());
+        // add panels
+        for (var i = 0; i < this.panels.length; i++) {
+            this.elem.appendChild(this.panels[i].render());
+        }
+        // add windows
+        this.update(null);
     }
     render() {
         return this.elem;
     }
-    update() {
-        // render panels
-        for (var i = 0; i < this.panels.length; i++) {
-            this.elem.appendChild(this.panels[i].render());
-        }
-        // render windows
+    update(event) {
+        for (var i = 0; i < this.panels.length; i++)
+            this.panels[i].update(event);
+        for (var i = 0; i < this.windows.length; i++)
+            this.windows[i].update(event);
     }
 }
 
@@ -123,7 +148,8 @@ class GameLegOS {
         this.elem = document.createElement('div');
         this.elem.id = "framebuffer";
         this.wm = new WindowManager();
-        this.update();
+        this.elem.appendChild(this.wm.render());
+        this.update(null);
     }
     render() {
         return this.elem;
@@ -138,9 +164,9 @@ class GameLegOS {
     onkeydown() {
         return "onkeydown";
     }
-    update() {
-        // render wm
-        this.elem.appendChild(this.wm.render());
+    update(event) {
+        // update wm
+        this.wm.update(event);
     }
 }
 
@@ -148,6 +174,9 @@ let os = new GameLegOS();
 document.getElementById("root").appendChild(os.render());
 console.log(os.render());
 window["os"] = os;
+document.onmousemove = function (e) {
+    os.update(e);
+};
 // event hooks
 // window click(os.handleClick)
 // window kbd(os.handleKbd)

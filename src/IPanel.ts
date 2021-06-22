@@ -5,7 +5,7 @@ interface IPanel
   leftclick();
   rightclick();
   render(): HTMLElement;
-  update();
+  update(event: MouseEvent);
 }
 
 export default IPanel;

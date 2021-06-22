@@ -15,8 +15,8 @@ class GameLegOS
     this.elem = document.createElement('div');
     this.elem.id = "framebuffer";
     this.wm = new WindowManager();
-  
-    this.update();
+    this.elem.appendChild(this.wm.render());
+    this.update(null);
   }
 
   onclick(x: number, y: number)
@@ -35,10 +35,11 @@ class GameLegOS
     return "onkeydown";
   }
 
-  update()
+  update(event: MouseEvent)
   {
-    // render wm
-    this.elem.appendChild(this.wm.render());
+    // update wm
+    this.wm.update(event);
+    
   }
 
 }

@@ -37,7 +37,7 @@ class Panel implements IPanel
     return this.elem;
   }
 
-  update()
+  update(event: MouseEvent)
   {
     this.elem.style.width =`${this.width}%`;
     this.elem.style.height = `${this.height}px`;
@@ -64,15 +64,18 @@ class Panel implements IPanel
   
     var lt = document.createElement('div');
     lt.style.float = "left";
-    for (var i = 0; i < this.left_tray.length; i++)	    lt.appendChild(this.left_tray[i]);
+    for (var i = 0; i < this.left_tray.length; i++)
+      lt.appendChild(this.left_tray[i]);
+  
     var rt = document.createElement('div');
     rt.style.float = "right";
-    for (var i = 0; i < this.right_tray.length; i++)	    rt.appendChild(this.right_tray[i]);
+    for (var i = 0; i < this.right_tray.length; i++)
+      rt.appendChild(this.right_tray[i]);
   
     this.elem.appendChild(lt);
     this.elem.appendChild(rt);
   
-    this.update();
+    this.update(null);
   }
 
 }

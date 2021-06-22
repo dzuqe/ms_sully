@@ -16,13 +16,17 @@ class WindowManager
   constructor()
   {
     this.elem = document.createElement('div');
-    let panel: IPanel = new Panel();
-    this.panels = new Array(panel);
+    this.panels = new Array(new Panel());
+    this.windows = new Array(new Window());
   
-    let window: IWindow = new Window();
-    this.windows = new Array(window);
+    // add panels
+    for (var i = 0; i < this.panels.length; i++) {
+      this.elem.appendChild(this.panels[i].render());
+    }
   
-    this.update();
+    // add windows
+  
+    this.update(null);
   }
 
   render(): HTMLElement
@@ -30,15 +34,13 @@ class WindowManager
     return this.elem;
   }
 
-  update()
+  update(event: MouseEvent)
   {
-    // render panels
-    for (var i = 0; i < this.panels.length; i++) {
-      this.elem.appendChild(this.panels[i].render());
-    }
+    for (var i = 0; i < this.panels.length; i++)
+      this.panels[i].update(event);
   
-    // render windows
-  
+    for (var i = 0; i < this.windows.length; i++)
+      this.windows[i].update(event);
   }
 
 }
