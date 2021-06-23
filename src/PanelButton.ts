@@ -1,3 +1,5 @@
+import Toggle from './Toggle'
+
 class PanelButton
 {
   elem: HTMLElement;
@@ -5,14 +7,18 @@ class PanelButton
   height: number;
   icon: string = null;
   color: string = "yellow";
-  fn: () => void;
+  fns: Toggle;
+  active: boolean = false;
 
   onclick(event: MouseEvent)
   {
     console.log("PanelButton clicked: ", event);
   
     // run user defined function
-    this.fn();
+    if (!this.active) this.fns.open();
+    else this.fns.close();
+  
+    this.active = !this.active;
   }
 
   leftclick()
@@ -25,13 +31,13 @@ class PanelButton
     console.log("PanelButton right clicked");
   }
 
-  constructor(width: number, height: number, color: string, fn: () => void)
+  constructor(width: number, height: number, color: string, fns: Toggle)
   {
     this.elem = document.createElement('div');
     this.width = width;
     this.height = height;
     this.color = color;
-    this.fn = fn;
+    this.fns = fns;
     this.elem.onclick = this.onclick.bind(this);
     this.update(null);
    

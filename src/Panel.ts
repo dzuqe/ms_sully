@@ -1,5 +1,6 @@
 import IPanel from './IPanel'
 import PanelButton from './PanelButton'
+import Toggle from './Toggle'
 
 class Panel implements IPanel
 {
@@ -31,16 +32,14 @@ class Panel implements IPanel
 
   render(): HTMLElement
   {
-    // render left menu
-    //this.elem.appendChild(this.left_tray):
-  
-    // render right app tray
-    //this.elem.appendChild(this.right_tray):
     return this.elem;
   }
 
   update(event: MouseEvent)
   {
+    // update all items in left tray
+    // update all items in right tray
+  
     this.elem.style.width =`${this.width}%`;
     this.elem.style.height = `${this.height}px`;
     this.elem.style.top = `0`;
@@ -52,8 +51,36 @@ class Panel implements IPanel
   {
     this.elem = document.createElement('div');
   
-    this.left_tray = new Array(new PanelButton(33, 33, "yellow", function() {console.log("left")} ));
-    this.right_tray = new Array(new PanelButton(33, 33, "yellow", function() {console.log("right")}));
+    // attach new elem to root just under the header
+    let fns: Toggle = {
+      open: function() {
+        let nelem: HTMLElement = document.createElement('div');
+        nelem.id = `leftPanelMenu`;
+        nelem.style.width = `200px`;
+        nelem.style.height = `200px`;
+        nelem.style.backgroundColor = `black`;
+        nelem.style.position = `absolute`;
+        nelem.style.left = `0`;
+        nelem.style.top = `36px`;
+        document.getElementById("root").appendChild(nelem);
+        console.log("left open");
+     },
+     close: function() {
+        document.getElementById("root")
+          .removeChild(document.getElementById("leftPanelMenu"));
+        console.log("left close");
+      }
+    };
+  
+    this.left_tray = new Array(new PanelButton(33, 33, "yellow",  fns));
+  
+    // just print something
+    let fns2: Toggle = {
+      open: function() {console.log("right open")},
+      close: function() {console.log("right close")}
+    };
+  
+    this.right_tray = new Array(new PanelButton(33, 33, "yellow", fns2));
   
     var lt = document.createElement('div');
     lt.style.float = "left";
