@@ -65,6 +65,40 @@ class Window {
     }
 }
 
+class PanelButton {
+    constructor(width, height, color, fn) {
+        this.icon = null;
+        this.color = "yellow";
+        this.elem = document.createElement('div');
+        this.width = width;
+        this.height = height;
+        this.color = color;
+        this.fn = fn;
+        this.elem.onclick = this.onclick.bind(this);
+        this.update(null);
+    }
+    onclick(event) {
+        console.log("PanelButton clicked: ", event);
+        // run user defined function
+        this.fn();
+    }
+    leftclick() {
+        console.log("PanelButton left clicked");
+    }
+    rightclick() {
+        console.log("PanelButton right clicked");
+    }
+    render() {
+        return this.elem;
+    }
+    update(event) {
+        this.elem.style.width = `${this.width}px`;
+        this.elem.style.height = `${this.height}px`;
+        this.elem.style.backgroundColor = `${this.color}`;
+        // icon
+    }
+}
+
 class Panel {
     constructor() {
         this.orientation = "top";
@@ -75,24 +109,16 @@ class Panel {
         this.height = 35;
         this.color = "red";
         this.elem = document.createElement('div');
-        var menubtn1 = document.createElement('div');
-        menubtn1.style.width = "33px";
-        menubtn1.style.height = "33px";
-        menubtn1.style.backgroundColor = "yellow";
-        var menubtn2 = document.createElement('div');
-        menubtn2.style.width = "33px";
-        menubtn2.style.height = "33px";
-        menubtn2.style.backgroundColor = "yellow";
-        this.left_tray = new Array(menubtn1);
-        this.right_tray = new Array(menubtn2);
+        this.left_tray = new Array(new PanelButton(33, 33, "yellow", function () { console.log("left"); }));
+        this.right_tray = new Array(new PanelButton(33, 33, "yellow", function () { console.log("right"); }));
         var lt = document.createElement('div');
         lt.style.float = "left";
         for (var i = 0; i < this.left_tray.length; i++)
-            lt.appendChild(this.left_tray[i]);
+            lt.appendChild(this.left_tray[i].render());
         var rt = document.createElement('div');
         rt.style.float = "right";
         for (var i = 0; i < this.right_tray.length; i++)
-            rt.appendChild(this.right_tray[i]);
+            rt.appendChild(this.right_tray[i].render());
         this.elem.appendChild(lt);
         this.elem.appendChild(rt);
         this.update(null);
@@ -153,16 +179,6 @@ class GameLegOS {
     }
     render() {
         return this.elem;
-    }
-    onclick(x, y) {
-        console.log("yay, handled clcik!", x, y);
-        return "onclick";
-    }
-    onkeyup() {
-        return "onkeyup";
-    }
-    onkeydown() {
-        return "onkeydown";
     }
     update(event) {
         // update wm

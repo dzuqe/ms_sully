@@ -13,4 +13,4 @@ build: css js
 
 
 test: 
-	node ui/client.js
+	cd ui; python -m RangeHTTPServer; cd -

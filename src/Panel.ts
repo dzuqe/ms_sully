@@ -1,4 +1,6 @@
 import IPanel from './IPanel'
+import PanelButton from './PanelButton'
+
 class Panel implements IPanel
 {
   orientation: string = "top";
@@ -9,8 +11,8 @@ class Panel implements IPanel
   height: number = 35;
   color: string = "red";
   elem: HTMLElement;
-  left_tray: HTMLElement[];
-  right_tray: HTMLElement[];
+  left_tray: PanelButton[];
+  right_tray: PanelButton[];
 
   onclick()
   {
@@ -49,28 +51,19 @@ class Panel implements IPanel
   constructor()
   {
     this.elem = document.createElement('div');
-    var menubtn1 = document.createElement('div');
-    menubtn1.style.width = "33px";
-    menubtn1.style.height = "33px";
-    menubtn1.style.backgroundColor= "yellow";
   
-    var menubtn2 = document.createElement('div');
-    menubtn2.style.width = "33px";
-    menubtn2.style.height = "33px";
-    menubtn2.style.backgroundColor= "yellow";
-  
-    this.left_tray = new Array(menubtn1);
-    this.right_tray = new Array(menubtn2);
+    this.left_tray = new Array(new PanelButton(33, 33, "yellow", function() {console.log("left")} ));
+    this.right_tray = new Array(new PanelButton(33, 33, "yellow", function() {console.log("right")}));
   
     var lt = document.createElement('div');
     lt.style.float = "left";
     for (var i = 0; i < this.left_tray.length; i++)
-      lt.appendChild(this.left_tray[i]);
+      lt.appendChild(this.left_tray[i].render());
   
     var rt = document.createElement('div');
     rt.style.float = "right";
     for (var i = 0; i < this.right_tray.length; i++)
-      rt.appendChild(this.right_tray[i]);
+      rt.appendChild(this.right_tray[i].render());
   
     this.elem.appendChild(lt);
     this.elem.appendChild(rt);

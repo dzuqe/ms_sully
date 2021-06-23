@@ -19,22 +19,6 @@ class GameLegOS
     this.update(null);
   }
 
-  onclick(x: number, y: number)
-  {
-    console.log("yay, handled clcik!", x, y);
-    return "onclick";
-  }
-
-  onkeyup()
-  {
-    return "onkeyup";
-  }
-
-  onkeydown()
-  {
-    return "onkeydown";
-  }
-
   update(event: MouseEvent)
   {
     // update wm
