@@ -1,12 +1,13 @@
 import App from './App'
 import IWindow from './IWindow'
-import User from './User'
 import Program from './Program'
+import IUser from './IUser'
+import NearUser from './NearUser'
 
 class Config
 {
   apps: App[];
-  user: User;
+  user: IUser;
 
   login()
   {
@@ -18,7 +19,7 @@ class Config
     this.user.logout();
   }
 
-  runApp(id: string): IWindow
+  runApp(id: string)
   {
     // find app with id
     var rapp = null;
@@ -28,7 +29,16 @@ class Config
     }
   
     // run app
-    return rapp.run();
+    rapp.run();
+  }
+
+  constructor()
+  {
+    this.apps = new Array();
+    this.addApp("myapp",  "My App", new Program());
+    this.addApp("zapp", "Ze app", new Program());
+    this.addApp("dapp", "Dapp", new Program());
+    this.user = new NearUser();
   }
 
   removeApp(id: string): boolean
@@ -42,18 +52,18 @@ class Config
       var app = this.apps[i];
        if (app.getId() == id) return app;
     }
+    return null;
   }
 
-  addApp(title: string, program: Program)
+  addApp(id: string, title: string, program: Program)
   {
-    // generate id
     // check if id doesn;t exist
-    var id: string = "";
-    while (!this.appExists(id) && id != "") {
-      id = "sdasdsd";
+    if (this.appExists(id)) {
+      console.log("This id already exists.");
+      return;
     }
   
-    var app = new App(title, program);
+    var app = new App(id, title, program);
     this.apps.push(app);
   }
 
@@ -69,6 +79,16 @@ class Config
   loadConfig(cfile: string)
   {
     console.log("Load config: ", cfile);
+  }
+
+  quitApp(id: string)
+  {
+    // add indexing support for apps
+    // remove element from wm
+    for (var i = 0; i < this.apps.length; i++) {
+      var app = this.apps[i];
+       if (app.getId() == id) app.quit();
+    }
   }
 
 }

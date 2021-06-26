@@ -3,6 +3,7 @@ import Program from './Program'
 
 class Window implements IWindow
 {
+  id: string;
   /**
    * x position of the window
    */
@@ -82,7 +83,7 @@ class Window implements IWindow
   
   }
 
-  constructor(title?: string, width?: number, height?: number, program?: Program)
+  constructor(id?: string, title?: string, width?: number, height?: number)
   {
     this.elem = document.createElement('div');
     if (width !== undefined && height !== undefined) {
@@ -90,6 +91,7 @@ class Window implements IWindow
       this.height = height;
     }
   
+    this.id = (id !== undefined) ? id : "4234";
     var titl = document.createElement('div');
     titl.style.width = "100%";
     titl.style.height = "20px";
@@ -110,6 +112,11 @@ class Window implements IWindow
     this.elem.appendChild(content);
   
     this.update(null);
+  }
+
+  getid(): string
+  {
+    return this.id;
   }
 
 }

@@ -9,6 +9,7 @@ interface IWindow
   move(x: number, y: number);
   update(event: MouseEvent);
   render(): HTMLElement;
+  getid(): string;
 }
 
 export default IWindow;

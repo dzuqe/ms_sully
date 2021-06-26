@@ -2,67 +2,56 @@ import Program from './Program'
 import IWindow from './IWindow'
 import Window from './Window'
 
+/*
+- has information about an app
+- running an app returns a new window with the app's program attached to it
+*/
+
 class App
 {
   title: string;
   program: Program;
   id: string;
   window: IWindow;
+  elem: HTMLElement;
+  running: boolean;
 
-  run(): HTMLElement
+  run()
   {
-  
-    this.window = new Window("test", 200,200, new Program());
-  
-    return document.createElement('div');
+    this.running = true;
     
   }
 
   quit()
   {
-    this.window.close();
-    // remove from tree
+    this.running = false;
   }
 
-  constructor(title: string, program: Program)
+  constructor(id: string, title: string, program: Program)
   {
+    this.id = id;
     this.title = title;
     this.program = program;
-  
-    //this.window = new Window();
-    this.window = new Window(
-      this.title,
-      200,  // width
-      200, // height
-      this.program // app should
-    );
-  
-    this.update(null);
-  }
-
-  update(event: MouseEvent)
-  {
-    this.window.update(event);
-  }
-
-  render(): HTMLElement
-  {
-    return this.window.render();
   }
 
   getTitle()
   {
-  
+    return this.title;
   }
 
-  setTitle()
+  setTitle(title: string)
   {
-  
+    this.title = title;
   }
 
   getId(): string
   {
-    return "42";
+    return this.id;
+  }
+
+  isRunning(): boolean
+  {
+    return this.running;
   }
 
 }
