@@ -14,7 +14,7 @@ class EthereumUser implements IUser
 
   isLoggedIn(): boolean
   {
-  
+    return false;
   }
 
 }

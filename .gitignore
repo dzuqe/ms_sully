@@ -2,6 +2,9 @@ node_modules
 build
 *.swp
 *.log
+*.sed
+*lock*
+y.*
 ui/client.js
 ui/main.css
 ui/main.css.map

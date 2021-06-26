@@ -1,4 +1,6 @@
 import IUser from './IUser'
+import * as api from 'near-api-js'
+
 class NearUser implements IUser
 {
   address: string;
@@ -6,19 +8,19 @@ class NearUser implements IUser
 
   login()
   {
-  /*
-    let networkId = "default";
-    let nodeUrl = "https://rpc.testnet.near.org";
-    let walletUrl = "https://wallet.testnet.near.org";
-    let walletUrl = "counter";
-   
-    let near = new Near({networkId, nodeUrl, walletUrl});
+    let config = {
+      networkId: "default",
+      nodeUrl: "https://rpc.testnet.near.org",
+      walletUrl: "https://wallet.testnet.near.org",
+      contractName: "counter",
+    };
   
+    let near = api.connect(config);
+    /*
     let wallet = new WalletAccount(near);
     let account = (wallet.isSignedIn()) ? wallet.account() : wallet.requestSignIn(contractName);
-  
-    console.log("Logged in: ", account, near, wallet);
   */
+    console.log("Logged in: ", api, near);
   }
 
   logout()

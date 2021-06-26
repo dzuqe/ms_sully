@@ -5,12 +5,12 @@ css:
 	sass src/main.sass ui/main.css
 
 js:
-	tsc -m es2015 -t es2015 tests/client.ts --outdir build
-	rollup -i build/tests/client.js -o ui/client.js
-	rm -rf build
+	# fix broken lib: https://github.com/near/near-api-js/issues/593
+	sed -i 's/delete(fn)/fn = null/g' node_modules/u3/lib/cache.js
+	rollup -c rollup.config.js
 
 build: css js
 
 
 test: 
-	cd ui; python -m RangeHTTPServer; cd -
+	cd ui; python -m http.server 8000; cd -
