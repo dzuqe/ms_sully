@@ -1,6 +1,7 @@
 import IPanel from './IPanel'
 import PanelButton from './PanelButton'
 import Toggle from './Toggle'
+import Tray from './Tray'
 
 class Panel implements IPanel
 {
@@ -12,8 +13,8 @@ class Panel implements IPanel
   height: number = 35;
   color: string = "red";
   elem: HTMLElement;
-  left_tray: PanelButton[];
-  right_tray: PanelButton[];
+  left_tray: Tray;
+  right_tray: Tray;
 
   onclick()
   {
@@ -72,7 +73,8 @@ class Panel implements IPanel
       }
     };
   
-    this.left_tray = new Array(new PanelButton(33, 33, "yellow",  fns));
+    this.left_tray = new Tray();
+    this.left_tray.addbtn(new PanelButton(33, 33, "yellow",  fns));
   
     // just print something
     let fns2: Toggle = {
@@ -80,17 +82,16 @@ class Panel implements IPanel
       close: function() {console.log("right close")}
     };
   
-    this.right_tray = new Array(new PanelButton(33, 33, "yellow", fns2));
+    this.right_tray = new Tray();
+    this.right_tray.addbtn(new PanelButton(33, 33, "yellow", fns2));
   
     var lt = document.createElement('div');
     lt.style.float = "left";
-    for (var i = 0; i < this.left_tray.length; i++)
-      lt.appendChild(this.left_tray[i].render());
+    lt.appendChild(this.left_tray.render());
   
     var rt = document.createElement('div');
     rt.style.float = "right";
-    for (var i = 0; i < this.right_tray.length; i++)
-      rt.appendChild(this.right_tray[i].render());
+    rt.appendChild(this.right_tray.render());
   
     this.elem.appendChild(lt);
     this.elem.appendChild(rt);

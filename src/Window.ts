@@ -1,4 +1,6 @@
 import IWindow from './IWindow'
+import Program from './Program'
+
 class Window implements IWindow
 {
   /**
@@ -17,12 +19,18 @@ class Window implements IWindow
 
   open()
   {
-  
+    console.log('ope');
   }
 
   close()
   {
-  
+    console.log('close');
+  }
+
+  resize(width: number, height: number)
+  {
+    this.width = width;
+    this.height = height;
   }
 
   minimize()
@@ -35,40 +43,10 @@ class Window implements IWindow
     this.elem.style.display = 'block';
   }
 
-  resize(width: number, height: number)
-  {
-    this.width = width;
-    this.height = height;
-  }
-
   move(x: number, y: number)
   {
     this.y = y;
     this.x = x;
-  }
-
-  constructor()
-  {
-    this.elem = document.createElement('div');
-  
-    var title = document.createElement('div');
-    title.style.width = "100%";
-    title.style.height = "20px";
-    title.style.backgroundColor = "white";
-    title.innerText = "window title";
-    title.onmousedown = this.onmousedown.bind(this);
-    title.onmouseup = this.onmouseleave.bind(this);
-    this.ismousedown = false;
-  
-    this.elem.appendChild(title);
-  
-    this.update(null);
-  }
-
-  render(): HTMLElement
-  {
-    // add title and controls 
-    return this.elem;
   }
 
   update(event: MouseEvent)
@@ -86,6 +64,12 @@ class Window implements IWindow
     this.elem.style.backgroundColor = `black`;
   }
 
+  render(): HTMLElement
+  {
+    // add title and controls 
+    return this.elem;
+  }
+
   onmousedown()
   {
     this.ismousedown = true;
@@ -96,6 +80,36 @@ class Window implements IWindow
   {
     this.ismousedown = false;
   
+  }
+
+  constructor(title?: string, width?: number, height?: number, program?: Program)
+  {
+    this.elem = document.createElement('div');
+    if (width !== undefined && height !== undefined) {
+      this.width = width;
+      this.height = height;
+    }
+  
+    var titl = document.createElement('div');
+    titl.style.width = "100%";
+    titl.style.height = "20px";
+    titl.style.backgroundColor = "white";
+  
+    titl.innerText = (title !== undefined) ? title : "x";
+    titl.onmousedown = this.onmousedown.bind(this);
+    titl.onmouseup = this.onmouseleave.bind(this);
+    this.ismousedown = false;
+  
+    var content = document.createElement('div');
+    content.style.width = "100%";
+    content.style.height = "80px";
+    content.style.backgroundColor = "blue";
+    content.innerText = "app";
+  
+    this.elem.appendChild(titl);
+    this.elem.appendChild(content);
+  
+    this.update(null);
   }
 
 }

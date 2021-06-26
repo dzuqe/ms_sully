@@ -43,7 +43,7 @@ class PanelButton
    
   }
 
-  render()
+  render(): HTMLElement
   {
     return this.elem;
   }

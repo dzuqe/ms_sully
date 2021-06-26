@@ -2,6 +2,7 @@ import IWindow from './IWindow'
 import Window from './Window'
 import IPanel from './IPanel'
 import Panel from './Panel'
+import Program from './Program'
 
 
 class WindowManager
@@ -10,8 +11,8 @@ class WindowManager
    * import IPanel from './IPanel'
    */
   panels: IPanel[];
-  windows: IWindow[];
   elem: HTMLElement;
+  windows: IWindow[];
 
   constructor()
   {

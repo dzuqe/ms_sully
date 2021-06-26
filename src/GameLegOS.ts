@@ -1,9 +1,11 @@
 import WindowManager from './WindowManager'
+import Config from './Config'
 
 class GameLegOS
 {
   wm: WindowManager;
   elem: HTMLElement;
+  config: Config;
 
   render(): HTMLElement
   {
@@ -14,6 +16,7 @@ class GameLegOS
   {
     this.elem = document.createElement('div');
     this.elem.id = "framebuffer";
+    this.config = new Config();
     this.wm = new WindowManager();
     this.elem.appendChild(this.wm.render());
     this.update(null);
