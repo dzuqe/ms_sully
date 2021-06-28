@@ -17,6 +17,21 @@ class EthereumUser implements IUser
     return false;
   }
 
+  getNfts()
+  {
+  
+  }
+
+  getOpenseaNfts()
+  {
+  
+  }
+
+  getRaribleNfts()
+  {
+  
+  }
+
 }
 
 export default EthereumUser;

@@ -1,6 +1,7 @@
 import WindowManager from './WindowManager'
 import Config from './Config'
 import App from './App'
+import IUser from './IUser'
 
 class GameLegOS
 {
@@ -13,11 +14,11 @@ class GameLegOS
     return this.elem;
   }
 
-  constructor()
+  constructor(user: IUser)
   {
+    this.config = new Config(user);
     this.elem = document.createElement('div');
     this.elem.id = "framebuffer";
-    this.config = new Config();
     this.wm = new WindowManager();
     this.elem.appendChild(this.wm.render());
     this.update(null);

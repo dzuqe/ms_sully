@@ -32,13 +32,13 @@ class Config
     rapp.run();
   }
 
-  constructor()
+  constructor(user: IUser)
   {
     this.apps = new Array();
-    this.addApp("myapp",  "My App", new Program());
-    this.addApp("zapp", "Ze app", new Program());
-    this.addApp("dapp", "Dapp", new Program());
-    this.user = new NearUser();
+    this.addApp("ff",  "Flip Flop", new Program());
+    this.addApp("fc", "Forest Cuties", new Program());
+    this.addApp("c", "Conquest", new Program());
+    this.user = user;
   }
 
   removeApp(id: string): boolean
