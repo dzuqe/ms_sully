@@ -1,36 +1,40 @@
+import IPanelItem from './IPanelItem'
 import PanelButton from './PanelButton'
 
 class Tray
 {
-  btns: PanelButton[];
+  items: IPanelItem[];
+  elem: HTMLElement;
 
-  addbtn(btn: PanelButton)
+  additem(item: IPanelItem)
   {
-    this.btns.push(btn);
+    this.items.push(item);
+    this.elem.appendChild(item.render());
   }
 
-  removebtn()
+  removeitem()
   {
   
   }
 
   update(event: MouseEvent)
   {
-    for (var i = 0; i < this.btns.length; i++)
-      this.btns[i].update(event);
+    for (var i = 0; i < this.items.length; i++)
+      this.items[i].update(event);
   }
 
   render(): HTMLElement
   {
-    var elem = document.createElement("div");
-    for (var i = 0; i < this.btns.length; i++)
-      elem.appendChild(this.btns[i].render());
-    return elem;
+    return this.elem;
   }
 
   constructor()
   {
-    this.btns = new Array();
+    this.elem = document.createElement("div");
+    this.items = new Array();
+  
+    for (var i = 0; i < this.items.length; i++)
+      this.elem.appendChild(this.items[i].render());
   }
 
 }

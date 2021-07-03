@@ -32,6 +32,11 @@ class EthereumUser implements IUser
   
   }
 
+  getBalance(): Promise<number>
+  {
+    return 0;
+  }
+
 }
 
 export default EthereumUser;

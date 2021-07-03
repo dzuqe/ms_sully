@@ -2,12 +2,14 @@ import WindowManager from './WindowManager'
 import Config from './Config'
 import App from './App'
 import IUser from './IUser'
+import PanelText from './PanelText'
 
 class GameLegOS
 {
   wm: WindowManager;
   elem: HTMLElement;
   config: Config;
+  booted: boolean = false;
 
   render(): HTMLElement
   {
@@ -21,13 +23,29 @@ class GameLegOS
     this.elem.id = "framebuffer";
     this.wm = new WindowManager();
     this.elem.appendChild(this.wm.render());
+  
+    // just print something
+    //let fns2: Toggle = {
+    //  open: function() {console.log("right open")},
+    //  close: function() {console.log("right close")}
+    //};
+  
+    //this.right_tray = new Tray();
+  //  let amount = await user.getBalance();
+  //  this.wm.addtopanel(new PanelText(String(amount)));
+  
+    //await this.boot();
     this.update(null);
   }
 
-  update(event: MouseEvent)
+  async update(event: MouseEvent)
   {
     // update wm
     this.wm.update(event);
+    if (!this.booted) {
+      this.booted = true;
+      await this.boot();
+    }
     
   }
 
@@ -57,6 +75,12 @@ class GameLegOS
     } else {
       console.log("App isn't running.");
     }
+  }
+
+  async boot()
+  {
+    let amount = await this.config.user.getBalance();
+    this.wm.addtopanel(new PanelText(String(amount)));
   }
 
 }

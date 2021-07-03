@@ -1,6 +1,7 @@
+import IPanelItem from './IPanelItem'
 import Toggle from './Toggle'
 
-class PanelButton
+class PanelButton implements IPanelItem
 {
   elem: HTMLElement;
   width: number;

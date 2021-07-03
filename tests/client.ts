@@ -19,7 +19,7 @@ let lm = new LoginManager();
 window["lm"] = lm;
 
 if (aid !== null) {
-  lm.loginNear(aid,pk,ak);
+  await lm.loginNear(aid,pk,ak);
   document.getElementById("root").appendChild(lm.os.render());
 
   document.onmousemove = function(e) {
@@ -30,6 +30,7 @@ if (aid !== null) {
   console.log("Choose chain: ");
   console.log("near");
   console.log("ethereum");
-  lm.login("near");
+  //lm.login("near");
+  document.getElementById("root").appendChild(lm.render());
 }
 

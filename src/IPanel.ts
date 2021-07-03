@@ -1,3 +1,5 @@
+import IPanelItem from './IPanelItem'
+
 interface IPanel
 {
 
@@ -6,6 +8,7 @@ interface IPanel
   rightclick();
   render(): HTMLElement;
   update(event: MouseEvent);
+  addtotray(item: IPanelItem);
 }
 
 export default IPanel;

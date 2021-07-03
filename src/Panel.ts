@@ -1,7 +1,9 @@
 import IPanel from './IPanel'
+import IPanelItem from './IPanelItem'
 import PanelButton from './PanelButton'
 import Toggle from './Toggle'
 import Tray from './Tray'
+
 
 class Panel implements IPanel
 {
@@ -74,7 +76,7 @@ class Panel implements IPanel
     };
   
     this.left_tray = new Tray();
-    this.left_tray.addbtn(new PanelButton(33, 33, "yellow",  fns));
+    this.left_tray.additem(new PanelButton(33, 33, "yellow",  fns));
   
     // just print something
     let fns2: Toggle = {
@@ -83,7 +85,7 @@ class Panel implements IPanel
     };
   
     this.right_tray = new Tray();
-    this.right_tray.addbtn(new PanelButton(33, 33, "yellow", fns2));
+    this.right_tray.additem(new PanelButton(33, 33, "yellow", fns2));
   
     var lt = document.createElement('div');
     lt.style.float = "left";
@@ -97,6 +99,11 @@ class Panel implements IPanel
     this.elem.appendChild(rt);
   
     this.update(null);
+  }
+
+  addtotray(item: IPanelItem)
+  {
+    this.right_tray.additem(item);
   }
 
 }

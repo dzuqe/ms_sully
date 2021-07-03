@@ -1,9 +1,11 @@
 import IWindow from './IWindow'
 import Window from './Window'
+import IPanelItem from './IPanelItem'
 import IPanel from './IPanel'
 import Panel from './Panel'
 import Program from './Program'
 import App from './App'
+
 
 /*
 - has information about all the running windows
@@ -21,6 +23,7 @@ class WindowManager
   {
     this.elem = document.createElement('div');
     this.elem.id = "wm";
+    this.elem.style = "background-image: url(https://i.imgur.com/cCvDvEu.jpeg); background-size: 100%; min-height:100vh ";
     this.panels = new Array(new Panel());
     this.windows = new Array();
   
@@ -70,6 +73,21 @@ class WindowManager
     }
     
     if (i < this.windows.length) this.windows.splice(i,i-1);
+  }
+
+  addpanel(panel: IPanel)
+  {
+  
+  }
+
+  removepanel(panel: IPanel)
+  {
+  
+  }
+
+  addtopanel(item: IPanelItem)
+  {
+    this.panels[0].addtotray(item);
   }
 
 }
