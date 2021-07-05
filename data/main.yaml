@@ -1,0 +1,78 @@
+---
+data:
+  - !locations
+    - !hospital
+      name: Musa Memorial Hospital
+      image: "https://image.png"
+      people:
+        - !doctor
+          name: Andy
+          image: "https://www.hawtcelebs.com/wp-content/uploads/2018/01/lindsay-lohan-out-and-about-in-new-york-01-12-2018-8.jpg"
+        - !nurse
+          name: Lisa
+          image: "http://www.oyetimes.com/wp-content/uploads/2018/06/image-29.jpg"
+      stuff:
+        - !defibrillator
+          name: Defibrillator
+          image: "https://image.made-in-china.com/202f0j00RZYTvFhwrjqi/Medical-Automatic-Pacing-Aed-Defibrillator-D3-.jpg"
+        - !mask
+          name: Covid Mask
+          image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.insidehook.com%2Fwp-content%2Fuploads%2F2020%2F02%2FCoronavirus_mask.jpg%3Ffit%3D1800%252C1200&f=1&nofb=1"
+        - !pump
+          name: Asthma pump
+          image: "https://images.fineartamerica.com/images-medium-large-5/asthma-inhaler-mark-thomasscience-photo-library.jpg"
+    - !station
+      name: Local Police County
+      image: ""
+      people:
+        - !cop
+          name: Cop
+          image: "http://www.oyetimes.com/wp-content/uploads/2018/06/image-29.jpg"
+        - !prisoner
+          name: Prisoner
+          image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.WKb7DmFfcRXJHpmYV-kZWgHaJQ%26pid%3DApi&f=1u"
+      stuff:
+        - !taser
+          name: Donut
+          image: ""
+    - !johnsons
+      name: Johnson's family home
+      image: "https://thenewswheel.com/wp-content/uploads/2015/06/Police-Station.jpg"
+      people:
+        - !father
+          name: Bob Crawford
+          image: "https://a.1stdibscdn.com/archivesE/upload/a_560/1479150933455/STEVE_MCQUEEN_2_master.JPG?width=768"
+        - !mother
+          name: Alice Crawford
+          image: "https://i.pinimg.com/originals/ee/44/5d/ee445d4a5a6c54dcef797e673fac5a5b.jpg"
+        - !son
+          name: Harry Crawford
+          image: "https://img.cinemablend.com/quill/4/9/9/9/c/e/4999ce041dcea7809f58602fc0c51d51f431f883.jpg"
+        - !dog
+          name: Keely
+          image: "https://cca-ct.org/wp-content/uploads/2016/10/bigstock-Young-Mixed-Race-Boy-With-Curl-41113216-1.jpg"
+      stuff:
+        - !car1
+          name: Car
+          image: ""
+    - !farm
+      name: Local Farm
+      image: ""
+      people:
+        - !farmer
+          name: Dylan Rycht
+          image: ""
+        - !enemy
+          name: Anton Harrison
+          image: ""
+    - !house
+      name: My House
+      image: ""
+      people:
+        - !me
+          name: Me
+          image: ""
+      stuff:
+        - !car2
+          name: Ms Sully
+          image: "https://opengameart.org/sites/default/files/styles/medium/public/render_3_1.png"
