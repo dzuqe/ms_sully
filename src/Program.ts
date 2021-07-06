@@ -5,7 +5,8 @@ class Program
   constructor()
   {
     this.elem = document.createElement('div')
-  
+    this.elem.style.width = `100%`;
+    this.elem.style.height = `100%`;
     this.update(null);
   }
 
@@ -16,9 +17,15 @@ class Program
 
   update(event: MouseEvent)
   {
-    this.elem.style = "width: 100%; height: 80px; overflow: auto;";
-    this.elem.style.backgroundColor = "blue";
-    this.elem.innerText = "app";
+  }
+
+  addImage(image: string)
+  {
+    var elem = document.createElement('img');
+    elem.src = image;
+    elem.style.width = "100%";
+    this.elem.appendChild(elem);
+    this.update(null);
   }
 
 }

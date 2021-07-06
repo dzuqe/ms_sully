@@ -74,36 +74,40 @@ class GameLegOS
   
     if (loc === null) {
       console.log("Root");
-      this.elem.style = "background-image: url(https://salud-america.org/wp-content/uploads/2020/01/Suburban-street.jpg); background-size: 100%; overflow: auto; min-height: 100vh"; 
-      // get all locations
-     // for (var i in locations) {
-        //let tloc = locations[i];
-        //let id = tloc.name.replace(' ', '');
-       // let app = new App(id, tloc.name, new Program());
-       // this.wm.addWindow(app);
-      //}
+      document.getElementById("root").style = "background-image: url(https://salud-america.org/wp-content/uploads/2020/01/Suburban-street.jpg); background-size: 100%; overflow: auto; min-height: 100vh"; 
+      let locs = this.lm.getAllLocations();
+      for (var i in locs) {
+        let tloc = locs[i];
+        let id = tloc.name.replace(' ', '');
+        let prog = new Program();
+        prog.addImage(tloc.image);
+        let app = new App(id, tloc.name, prog);
+        this.wm.addWindow(app);
+      }
     } else {
       console.log("Loc: ", loc);
-      this.elem.style = `background-image: url(${loc.image}); background-size: 100%; overflow: auto; min-height: 100vh`; 
+      document.getElementById("root").style = `background-image: url(${loc.image}); background-size: 100%; overflow: auto; min-height: 100vh`; 
   
       // add all people
-     // for (var i in loc.npcs) {
-        //let npc = loc.npcs[i];
-        //let id = npc.name.replace(' ', '');
-       // let app = new App(id, npc.name, new Program());
-       // this.wm.addWindow(app);
-      //}
+      for (var i in loc.npcs) {
+        let npc = loc.npcs[i];
+        let id = npc.name.replace(' ', '');
+        let prog = new Program();
+        prog.addImage(npc.image);
+        let app = new App(id, npc.name, prog);
+        this.wm.addWindow(app);
+      }
   
       // add all stuff
-      // for (var i in loc.items) {
-        //let item = loc.items[i];
-        //let id = item.name.replace(' ', '');
-       // let app = new App(id, item.name, new Program());
-       // this.wm.addWindow(app);
-      //}
-      
+      for (var i in loc.items) {
+        let item = loc.items[i];
+        let id = item.name.replace(' ', '');
+        let prog = new Program();
+        prog.addImage(item.image);
+        let app = new App(id, item.name, prog);
+        this.wm.addWindow(app);
+      } 
     }
-    this.update(null);
   }
 
 }

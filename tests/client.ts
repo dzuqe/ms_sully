@@ -24,6 +24,3 @@ window["lm"] = lm;
 
 document.getElementById("root").appendChild(lm.render());
 
-document.onmousemove = function(e) {
-  //lm.os.update(e);
-}

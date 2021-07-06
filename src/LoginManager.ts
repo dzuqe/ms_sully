@@ -38,6 +38,11 @@ class LoginManager
     let data = await axios("./data.json");
     this.os = new GameLegOS(data.data.data);
   
+    let os = this.os;
+    document.onmousemove = function(e) {
+      os.update(e);
+    }
+  
     // update screen
     document.getElementById('root').removeChild(this.render());
     document.getElementById('root').appendChild(this.os.render());

@@ -1,11 +1,11 @@
 import INpc from './INpc'
 class Npc implements INpc
 {
-  avatar: string = "";
+  image: string = "";
   name: string;
   location: number;
 
-  getAvatar(): string
+  getImage(): string
   {
     return "yeet";
   }
@@ -13,7 +13,7 @@ class Npc implements INpc
   constructor(name: string, image: string)
   {
     this.name = name;
-    this.avatar = image;
+    this.image = image;
   }
 
 }

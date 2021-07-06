@@ -1,78 +1,161 @@
----
-data:
-  locations:
-    - !hospital
-      name: Musa Memorial Hospital
-      image: "https://image.png"
-      people:
-        - !doctor
-          name: Andy
-          image: "https://www.hawtcelebs.com/wp-content/uploads/2018/01/lindsay-lohan-out-and-about-in-new-york-01-12-2018-8.jpg"
-        - !nurse
-          name: Lisa
-          image: "http://www.oyetimes.com/wp-content/uploads/2018/06/image-29.jpg"
-      stuff:
-        - !defibrillator
-          name: Defibrillator
-          image: "https://image.made-in-china.com/202f0j00RZYTvFhwrjqi/Medical-Automatic-Pacing-Aed-Defibrillator-D3-.jpg"
-        - !mask
-          name: Covid Mask
-          image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.insidehook.com%2Fwp-content%2Fuploads%2F2020%2F02%2FCoronavirus_mask.jpg%3Ffit%3D1800%252C1200&f=1&nofb=1"
-        - !pump
-          name: Asthma pump
-          image: "https://images.fineartamerica.com/images-medium-large-5/asthma-inhaler-mark-thomasscience-photo-library.jpg"
-    - !station:
-      name: Local Police County
-      image: ""
-      people:
-        - !cop
-          name: Cop
-          image: "http://www.oyetimes.com/wp-content/uploads/2018/06/image-29.jpg"
-        - !prisoner
-          name: Prisoner
-          image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.WKb7DmFfcRXJHpmYV-kZWgHaJQ%26pid%3DApi&f=1u"
-      stuff:
-        - !taser
-          name: Taser
-          image: "https://cdn11.bigcommerce.com/s-9j9zreeu/images/stencil/1280x1280/products/51249/154265/X26P_LSide__84735.1539275274.jpg?c=2?imbypass=on"
-    - !johnsons:
-      name: Johnson's family home
-      image: "https://thenewswheel.com/wp-content/uploads/2015/06/Police-Station.jpg"
-      people:
-        - !father
-          name: Bob Crawford
-          image: "https://a.1stdibscdn.com/archivesE/upload/a_560/1479150933455/STEVE_MCQUEEN_2_master.JPG?width=768"
-        - !mother
-          name: Alice Crawford
-          image: "https://i.pinimg.com/originals/ee/44/5d/ee445d4a5a6c54dcef797e673fac5a5b.jpg"
-        - !son
-          name: Harry Crawford
-          image: "https://img.cinemablend.com/quill/4/9/9/9/c/e/4999ce041dcea7809f58602fc0c51d51f431f883.jpg"
-        - !dog
-          name: Keely
-          image: "https://cca-ct.org/wp-content/uploads/2016/10/bigstock-Young-Mixed-Race-Boy-With-Curl-41113216-1.jpg"
-      stuff:
-        - !car1
-          name: Car
-          image: ""
-    - !farm:
-      name: Local Farm
-      image: ""
-      people:
-        - !farmer
-          name: Dylan Rycht
-          image: ""
-        - !enemy
-          name: Anton Harrison
-          image: ""
-    - !house:
-      name: My House
-      image: ""
-      people:
-        - !me
-          name: Me
-          image: ""
-      stuff:
-        - !car2
-          name: Ms Sully
-          image: "https://opengameart.org/sites/default/files/styles/medium/public/render_3_1.png"
+--- !<tag:ms-sully.com,2021:game-data>
+locations:
+  - name  : Memorial Hospital
+    image : "https://www.esht.nhs.uk/wp-content/uploads/2017/04/6.-Main-Reception-Desk-1200x816.jpg"
+    people:
+      - name  : Andy
+        image : "https://www.hawtcelebs.com/wp-content/uploads/2018/01/lindsay-lohan-out-and-about-in-new-york-01-12-2018-8.jpg"
+        dialogue:
+          - me  : Hey Doctor Andy
+            npc : Hello, sir. How may I help you.
+          - me  :
+            - My car's missing.
+            - Thought it was the neighbor pulling out.
+            - Heard another play jazz too.
+            - And Bob tells me that you love it.
+            - I'm not accusing you of anything here.
+            - Just want to know if you saw something?
+            - A white 1970s german hatchback's my car.
+            npc:
+              - As a matter of fact. I did see that car
+              - If you can pass these out to people in town.
+              - I will let you in on what I saw last night.
+          - me:
+            - Oh yeah no problem. #[rcv masks]
+              # [needs 0 masks on user]
+            npc: 
+              - I see you got rid of all the masks
+              - here's what i saw.
+      - name  : Lisa
+        image : "http://www.oyetimes.com/wp-content/uploads/2018/06/image-29.jpg"
+        dialogue:
+          - me  : Hey
+            npc : Hi, welcome to Memorial hospital. How may I assist you?
+    stuff:
+      - name  : Defibrillator
+        image : "https://image.made-in-china.com/202f0j00RZYTvFhwrjqi/Medical-Automatic-Pacing-Aed-Defibrillator-D3-.jpg"
+      - name  : Covid Mask
+        image : "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.insidehook.com%2Fwp-content%2Fuploads%2F2020%2F02%2FCoronavirus_mask.jpg%3Ffit%3D1800%252C1200&f=1&nofb=1"
+      - name  : Asthma pump
+        image : "https://images.fineartamerica.com/images-medium-large-5/asthma-inhaler-mark-thomasscience-photo-library.jpg"
+  - name  : Local Police County
+    image : "https://thenewswheel.com/wp-content/uploads/2015/06/Police-Station.jpg"
+    people:
+      - name  : Cop
+        image : "http://www.oyetimes.com/wp-content/uploads/2018/06/image-29.jpg"
+        dialogue:
+          - me  : Hey little man.
+            npc : sup old man.
+      - name  : Prisoner
+        image : "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.WKb7DmFfcRXJHpmYV-kZWgHaJQ%26pid%3DApi&f=1u"
+        dialogue:
+          - me  : Hey little man.
+            npc : sup old man.
+    stuff:
+      - name  : Taser
+        image : "https://cdn11.bigcommerce.com/s-9j9zreeu/images/stencil/1280x1280/products/51249/154265/X26P_LSide__84735.1539275274.jpg?c=2?imbypass=on"
+  - name  : Johnson family home
+    image : "https://cdn.ostrovok.ru/t/640x400/second/9c/93/9c93b0d751032c27aa6afda7a355e6c7f0c5cea6.jpeg"
+    people:
+      - name  : Bob Crawford
+        image : "https://a.1stdibscdn.com/archivesE/upload/a_560/1479150933455/STEVE_MCQUEEN_2_master.JPG?width=768"
+        dialogue:
+          - me  : Yo
+            npc : Hey, how's it going
+          - me  : 
+            - I just moved here like a week ago.
+            - But now my car's missing.
+            npc :
+              - Whoa
+              - Sorry to hear
+              - I heard a car pull out and thought you went to explore your new town.
+          - me:
+            - Funny, I heard a car pull out too and thought it was you.
+            - Another one passed and seemed to be playing jazz.
+            npc:
+              - This is a bit of a pickle.
+              - You should stop by the police station.
+              - Frank can surely try to help a little.
+          - me: Is that far from here?
+            npc: Not really, just three blocks out.
+          - me: Thanks amigo. Fine son you got there. And wife too.
+            npc: 
+              - Thanks, hombre. Good luck.
+              - If you ever pass by the convienence store,
+              - Pick me up some oil for my car. 
+              - I know someone who loves jazz.
+              - Maybe that can help you out
+              #         - [requires oil]
+              #           - npc: Did you get that oil for me?
+              #           - me: Here's the oil [give oil]
+              #           - npc: 
+              #             - [rcv oil]
+              #             - thanks. The guy's name is Andy.
+              #             - He's the doctor at the hospital on Maryland street.
+      - name  : Alice Crawford
+        image : "https://i.pinimg.com/originals/ee/44/5d/ee445d4a5a6c54dcef797e673fac5a5b.jpg"
+        dialogue:
+          - me  : Hey
+            npc :
+              - Hi, welcome to the neighborheid
+              - Our last neighbor was such a nuissance.
+              - I hope we won't be experiencing the same from you.
+          - me  :
+              - Err. Thanks.
+              - Woke up today and my car's missing?
+            npc: |
+              Whoa, are you sure it didn't get repossesed?
+          - me  :
+            - Ahgh. Lady. I'm having a traumatic experience.
+            - I'm looking for car and err, 
+            - I'll just speak to your husband.
+            - You're frustrating me
+            npc : |
+              right.
+      - name  : Harry Crawford
+        image : "https://img.cinemablend.com/quill/4/9/9/9/c/e/4999ce041dcea7809f58602fc0c51d51f431f883.jpg"
+        dialogue:
+          - me  : Hey little man.
+            npc : sup old man.
+          - me  : Have you seen my car?
+            npc : |
+              The white hatchback? Yeah, last night.
+              Thought you left this morning
+          - me  : |
+              No, it's my day off.
+              Are you parents around?
+            npc : Yeah, let me call them for you.
+          - me : Thanks.
+            npc: #[load missing other npcs]
+
+
+      - name  : Keely
+        image : "https://cca-ct.org/wp-content/uploads/2016/10/bigstock-Young-Mixed-Race-Boy-With-Curl-41113216-1.jpg"
+        dialogue:
+          - me  : [Hey, \*rub dog\*]
+            npc : [Woof, Woof Woof *wags tail*]
+    stuff:
+      - name  : Car
+        image : "https://123free3dmodels.com/media/2019/05/20190506_5cd02b7ef1f0b.png"
+  - name  : Local Farm
+    image : "https://www.openaccessgovernment.org/wp-content/uploads/2019/05/dreamstime_xxl_57105422.jpg"
+    people:
+      - name  : Dylan Rycht
+        image : ""
+        dialogue:
+          - me  : Hey little man.
+            npc : sup old man.
+      - name  : Anton Harrison
+        image : ""
+        dialogue:
+          - me  : Hey little man.
+            npc : sup old man.
+  - name  : My House
+    image : "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/rubber-plant-1551304065.jpg?crop=1.00xw:0.754xh;0,0.141xh&resize=768:*"
+    people:
+      - name  : Me
+        image : ""
+    stuff:
+      - name  : Ms Sully
+        image : "https://opengameart.org/sites/default/files/styles/medium/public/render_3_1.png"
+...            

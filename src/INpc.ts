@@ -1,7 +1,8 @@
 interface INpc
 {
-
-  getAvatar(): string;
+  name: string;
+  image: string;
+  getImage(): string;
 }
 
 export default INpc;

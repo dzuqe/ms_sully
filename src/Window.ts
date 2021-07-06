@@ -108,15 +108,11 @@ class Window implements IWindow
     titl.onmouseup = this.onmouseleave.bind(this);
     this.ismousedown = false;
   
-  //  var content = document.createElement('div');
-  //  content.style.width = "100%";
-  //  content.style.height = "80px";
-  //  content.style.backgroundColor = "blue";
-  //  content.innerText = "app";
+    var content = program.render();
   
     this.elem.appendChild(titl);
     this.elem.appendChild(this.program.render());
-  //  this.elem.appendChild(content);
+    this.elem.appendChild(content);
   
     this.update(null);
   }
