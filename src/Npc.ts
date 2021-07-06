@@ -10,6 +10,12 @@ class Npc implements INpc
     return "yeet";
   }
 
+  constructor(name: string, image: string)
+  {
+    this.name = name;
+    this.avatar = image;
+  }
+
 }
 
 export default Npc;

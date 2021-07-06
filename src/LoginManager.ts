@@ -36,9 +36,7 @@ class LoginManager
   async login(event: MouseEvent)
   {
     let data = await axios("./data.json");
-    let config = data.data.data;
-  
-    this.os = new GameLegOS(config);
+    this.os = new GameLegOS(data.data.data);
   
     // update screen
     document.getElementById('root').removeChild(this.render());

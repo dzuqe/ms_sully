@@ -1,7 +1,7 @@
 ---
 data:
   locations:
-    hospital:
+    - !hospital
       name: Musa Memorial Hospital
       image: "https://image.png"
       people:
@@ -21,7 +21,7 @@ data:
         - !pump
           name: Asthma pump
           image: "https://images.fineartamerica.com/images-medium-large-5/asthma-inhaler-mark-thomasscience-photo-library.jpg"
-    station:
+    - !station:
       name: Local Police County
       image: ""
       people:
@@ -35,7 +35,7 @@ data:
         - !taser
           name: Taser
           image: "https://cdn11.bigcommerce.com/s-9j9zreeu/images/stencil/1280x1280/products/51249/154265/X26P_LSide__84735.1539275274.jpg?c=2?imbypass=on"
-    johnsons:
+    - !johnsons:
       name: Johnson's family home
       image: "https://thenewswheel.com/wp-content/uploads/2015/06/Police-Station.jpg"
       people:
@@ -55,7 +55,7 @@ data:
         - !car1
           name: Car
           image: ""
-    farm:
+    - !farm:
       name: Local Farm
       image: ""
       people:
@@ -65,7 +65,7 @@ data:
         - !enemy
           name: Anton Harrison
           image: ""
-    house:
+    - !house:
       name: My House
       image: ""
       people:

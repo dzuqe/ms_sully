@@ -19,12 +19,11 @@ class GameLegOS
 
   constructor(narrative: object)
   {
-    console.log(narrative);
-  
     this.config = new Config();
     this.elem = document.createElement('div');
     this.elem.id = "framebuffer";
     this.wm = new WindowManager();
+    this.lm = new LocationManager(narrative);
     this.elem.appendChild(this.wm.render());
   
     // just print something
@@ -39,11 +38,7 @@ class GameLegOS
   {
     // update wm
     this.wm.update(event);
-    if (!this.booted) {
-      this.booted = true;
-      await this.boot();
-    }
-    
+  
   }
 
   runApp(id: string)
@@ -67,16 +62,48 @@ class GameLegOS
     if (app === null) {
       console.log("The app doesn't exist");
     } else if (app.isRunning()) {
-      this.wm.removeWindow(app);
       app.quit();
     } else {
       console.log("App isn't running.");
     }
   }
 
-  async boot()
+  displayLocation()
   {
+    let loc = this.lm.getCurrentLocation();
   
+    if (loc === null) {
+      console.log("Root");
+      this.elem.style = "background-image: url(https://salud-america.org/wp-content/uploads/2020/01/Suburban-street.jpg); background-size: 100%; overflow: auto; min-height: 100vh"; 
+      // get all locations
+     // for (var i in locations) {
+        //let tloc = locations[i];
+        //let id = tloc.name.replace(' ', '');
+       // let app = new App(id, tloc.name, new Program());
+       // this.wm.addWindow(app);
+      //}
+    } else {
+      console.log("Loc: ", loc);
+      this.elem.style = `background-image: url(${loc.image}); background-size: 100%; overflow: auto; min-height: 100vh`; 
+  
+      // add all people
+     // for (var i in loc.npcs) {
+        //let npc = loc.npcs[i];
+        //let id = npc.name.replace(' ', '');
+       // let app = new App(id, npc.name, new Program());
+       // this.wm.addWindow(app);
+      //}
+  
+      // add all stuff
+      // for (var i in loc.items) {
+        //let item = loc.items[i];
+        //let id = item.name.replace(' ', '');
+       // let app = new App(id, item.name, new Program());
+       // this.wm.addWindow(app);
+      //}
+      
+    }
+    this.update(null);
   }
 
 }

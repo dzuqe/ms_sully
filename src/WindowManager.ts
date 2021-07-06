@@ -17,7 +17,7 @@ class WindowManager
   {
     this.elem = document.createElement('div');
     this.elem.id = "wm";
-    this.elem.style = "background-image: url(https://i.imgur.com/cCvDvEu.jpeg); background-size: 100%; min-height:100vh ";
+    //this.elem.style = "background-image: url(https://i.imgur.com/cCvDvEu.jpeg); background-size: 100%; min-height:100vh ";
     this.windows = new Array();
     this.update(null);
   }
@@ -47,16 +47,13 @@ class WindowManager
     this.elem.appendChild(window.render());
   }
 
-  removeWindow(app: App)
+  removeAllWindows()
   {
-    for (var i=0; i<this.windows.length; i++) {
-      if (this.windows[i].getid() === app.id) {
-        this.elem.removeChild(this.windows[i].render());
-        break;
-      }
+    for (var i in this.windows) {
+      this.elem.removeChild(this.windows[i].render());
     }
-    
-    if (i < this.windows.length) this.windows.splice(i,i-1);
+  
+    this.windows = [];
   }
 
 }
