@@ -1,8 +1,8 @@
 import WindowManager from './WindowManager'
+import LocationManager from './LocationManager'
 import Config from './Config'
 import App from './App'
-import IUser from './IUser'
-import PanelText from './PanelText'
+import Program from './Program'
 
 class GameLegOS
 {
@@ -10,15 +10,18 @@ class GameLegOS
   elem: HTMLElement;
   config: Config;
   booted: boolean = false;
+  lm: LocationManager;
 
   render(): HTMLElement
   {
     return this.elem;
   }
 
-  constructor(user: IUser)
+  constructor(narrative: object)
   {
-    this.config = new Config(user);
+    console.log(narrative);
+  
+    this.config = new Config();
     this.elem = document.createElement('div');
     this.elem.id = "framebuffer";
     this.wm = new WindowManager();
@@ -29,12 +32,6 @@ class GameLegOS
     //  open: function() {console.log("right open")},
     //  close: function() {console.log("right close")}
     //};
-  
-    //this.right_tray = new Tray();
-  //  let amount = await user.getBalance();
-  //  this.wm.addtopanel(new PanelText(String(amount)));
-  
-    //await this.boot();
     this.update(null);
   }
 
@@ -57,7 +54,7 @@ class GameLegOS
       console.log("The app doesn't exist");
     } else if (!app.isRunning()) {
       app.run();
-      this.wm.addwindow(app);
+      this.wm.addWindow(app);
     } else {
       console.log("App is already running.");
     }
@@ -70,7 +67,7 @@ class GameLegOS
     if (app === null) {
       console.log("The app doesn't exist");
     } else if (app.isRunning()) {
-      this.wm.removewindow(app);
+      this.wm.removeWindow(app);
       app.quit();
     } else {
       console.log("App isn't running.");
@@ -79,8 +76,7 @@ class GameLegOS
 
   async boot()
   {
-    let amount = await this.config.user.getBalance();
-    this.wm.addtopanel(new PanelText(String(amount)));
+  
   }
 
 }

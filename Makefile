@@ -9,7 +9,10 @@ js:
 	sed -i 's/delete(fn)/fn = null/g' node_modules/u3/lib/cache.js
 	rollup -c rollup.config.js
 
-build: css js
+json:	
+	yq . data/main.yaml > ui/data.json
+
+build: css js json
 
 
 test: 

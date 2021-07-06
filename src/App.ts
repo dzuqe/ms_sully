@@ -12,8 +12,6 @@ class App
   title: string;
   program: Program;
   id: string;
-  window: IWindow;
-  elem: HTMLElement;
   running: boolean;
 
   run()

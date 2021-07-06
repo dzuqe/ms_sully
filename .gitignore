@@ -4,7 +4,8 @@ build
 *.log
 *.sed
 *lock*
-y.*
+ms_sully.*
 ui/client.js
 ui/main.css
 ui/main.css.map
+ui/data.json

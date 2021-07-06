@@ -18,6 +18,7 @@ class Window implements IWindow
   borderwidth: number = 1;
   ismousedown: boolean;
   title: string;
+  program: Program;
 
   open()
   {
@@ -87,13 +88,14 @@ class Window implements IWindow
   
   }
 
-  constructor(id?: string, title?: string, width?: number, height?: number)
+  constructor(id?: string, title?: string, width?: number, height?: number, program?: Program)
   {
     this.id = (id !== undefined) ? id : "4234";
     this.title = (title !== undefined) ? title : "x";
     this.elem = document.createElement('div');
     this.width = (width !== undefined) ? width : 200;
     this.height = (height !== undefined) ? height : 200;
+    this.program = (program !== undefined) ? program : new Program();
   
     var titl = document.createElement('div');
     titl.id = "win-" + this.id;
@@ -106,14 +108,15 @@ class Window implements IWindow
     titl.onmouseup = this.onmouseleave.bind(this);
     this.ismousedown = false;
   
-    var content = document.createElement('div');
-    content.style.width = "100%";
-    content.style.height = "80px";
-    content.style.backgroundColor = "blue";
-    content.innerText = "app";
+  //  var content = document.createElement('div');
+  //  content.style.width = "100%";
+  //  content.style.height = "80px";
+  //  content.style.backgroundColor = "blue";
+  //  content.innerText = "app";
   
     this.elem.appendChild(titl);
-    this.elem.appendChild(content);
+    this.elem.appendChild(this.program.render());
+  //  this.elem.appendChild(content);
   
     this.update(null);
   }
