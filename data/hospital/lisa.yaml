@@ -1,0 +1,5 @@
+name  : Lisa
+image : "http://www.oyetimes.com/wp-content/uploads/2018/06/image-29.jpg"
+dialogue:
+  - me  : Hey
+    npc : Hi, welcome to Memorial hospital. How may I assist you?

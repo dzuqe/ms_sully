@@ -1,0 +1,24 @@
+name  : Andy
+image : "https://www.hawtcelebs.com/wp-content/uploads/2018/01/lindsay-lohan-out-and-about-in-new-york-01-12-2018-8.jpg"
+dialogue:
+  - me  : Hey Doctor Andy
+    npc : Hello, sir. How may I help you.
+  - me  :
+    - My car's missing.
+    - Thought it was the neighbor pulling out.
+    - Heard another play jazz too.
+    - And Bob tells me that you love it.
+    - I'm not accusing you of anything here.
+    - Just want to know if you saw something?
+    - A white 1970s german hatchback's my car.
+    npc:
+      - As a matter of fact. I did see that car
+      - If you can pass these out to people in town.
+      - I will let you in on what I saw last night.
+  - me:
+    - Oh yeah no problem. #[rcv masks]
+      # [needs 0 masks on user]
+    npc: 
+      - I see you got rid of all the masks
+      - here's what i saw.
+

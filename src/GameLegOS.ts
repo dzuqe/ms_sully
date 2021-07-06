@@ -3,14 +3,15 @@ import LocationManager from './LocationManager'
 import Config from './Config'
 import App from './App'
 import Program from './Program'
+import INpc from './INpc'
 
 class GameLegOS
 {
   wm: WindowManager;
   elem: HTMLElement;
-  config: Config;
   booted: boolean = false;
   lm: LocationManager;
+  player: INpc;
 
   render(): HTMLElement
   {
@@ -19,7 +20,6 @@ class GameLegOS
 
   constructor(narrative: object)
   {
-    this.config = new Config();
     this.elem = document.createElement('div');
     this.elem.id = "framebuffer";
     this.wm = new WindowManager();
@@ -39,33 +39,6 @@ class GameLegOS
     // update wm
     this.wm.update(event);
   
-  }
-
-  runApp(id: string)
-  {
-    let app: App = this.config.appExists(id) ? this.config.getApp(id) : null;
-  
-    if (app === null) {
-      console.log("The app doesn't exist");
-    } else if (!app.isRunning()) {
-      app.run();
-      this.wm.addWindow(app);
-    } else {
-      console.log("App is already running.");
-    }
-  }
-
-  quitApp(id: string)
-  {
-    let app: App = this.config.appExists(id) ? this.config.getApp(id) : null;
-  
-    if (app === null) {
-      console.log("The app doesn't exist");
-    } else if (app.isRunning()) {
-      app.quit();
-    } else {
-      console.log("App isn't running.");
-    }
   }
 
   displayLocation()
@@ -109,7 +82,6 @@ class GameLegOS
       } 
     }
   }
-
 }
 
 export default GameLegOS;

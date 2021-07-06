@@ -1,0 +1,36 @@
+name  : Bob Crawford
+image : "https://a.1stdibscdn.com/archivesE/upload/a_560/1479150933455/STEVE_MCQUEEN_2_master.JPG?width=768"
+dialogue:
+  - me  : Yo
+    npc : Hey, how's it going
+  - me  : 
+    - I just moved here like a week ago.
+    - But now my car's missing.
+    npc :
+      - Whoa
+      - Sorry to hear
+      - I heard a car pull out and thought you went to explore your new town.
+  - me:
+    - Funny, I heard a car pull out too and thought it was you.
+    - Another one passed and seemed to be playing jazz.
+    npc:
+      - This is a bit of a pickle.
+      - You should stop by the police station.
+      - Frank can surely try to help a little.
+  - me: Is that far from here?
+    npc: Not really, just three blocks out.
+  - me: Thanks amigo. Fine son you got there. And wife too.
+    npc: 
+      - Thanks, hombre. Good luck.
+      - If you ever pass by the convienence store,
+      - Pick me up some oil for my car. 
+      - I know someone who loves jazz.
+      - Maybe that can help you out
+      #         - [requires oil]
+      #           - npc: Did you get that oil for me?
+      #           - me: Here's the oil [give oil]
+      #           - npc: 
+      #             - [rcv oil]
+      #             - thanks. The guy's name is Andy.
+      #             - He's the doctor at the hospital on Maryland street.
+

@@ -1,0 +1,14 @@
+name  : Johnson family home
+image : "https://cdn.ostrovok.ru/t/640x400/second/9c/93/9c93b0d751032c27aa6afda7a355e6c7f0c5cea6.jpeg"
+people:
+  - !include bob.yaml 
+  - !include alice.yaml 
+  - !include harry.yaml 
+  - name  : Keely
+    image : "https://cca-ct.org/wp-content/uploads/2016/10/bigstock-Young-Mixed-Race-Boy-With-Curl-41113216-1.jpg"
+    dialogue:
+      - me  : [Hey, \*rub dog\*]
+        npc : [Woof, Woof Woof *wags tail*]
+stuff:
+  - name  : Car
+    image : "https://123free3dmodels.com/media/2019/05/20190506_5cd02b7ef1f0b.png"

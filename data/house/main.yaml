@@ -1,0 +1,8 @@
+name  : My House
+image : "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/rubber-plant-1551304065.jpg?crop=1.00xw:0.754xh;0,0.141xh&resize=768:*"
+people:
+  - name  : Me
+    image : ""
+stuff:
+  - name  : Ms Sully
+    image : "https://opengameart.org/sites/default/files/styles/medium/public/render_3_1.png"

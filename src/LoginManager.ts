@@ -36,7 +36,7 @@ class LoginManager
   async login(event: MouseEvent)
   {
     let data = await axios("./data.json");
-    this.os = new GameLegOS(data.data.data);
+    this.os = new GameLegOS(data.data);
   
     let os = this.os;
     document.onmousemove = function(e) {

@@ -1,0 +1,13 @@
+name  : Local Farm
+image : "https://www.openaccessgovernment.org/wp-content/uploads/2019/05/dreamstime_xxl_57105422.jpg"
+people:
+  - name  : Dylan Rycht
+    image : ""
+    dialogue:
+      - me  : Hey little man.
+        npc : sup old man.
+  - name  : Anton Harrison
+    image : ""
+    dialogue:
+      - me  : Hey little man.
+        npc : sup old man.

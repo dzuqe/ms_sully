@@ -1,0 +1,15 @@
+name  : Harry Crawford
+image : "https://img.cinemablend.com/quill/4/9/9/9/c/e/4999ce041dcea7809f58602fc0c51d51f431f883.jpg"
+dialogue:
+  - me  : Hey little man.
+    npc : sup old man.
+  - me  : Have you seen my car?
+    npc : |
+      The white hatchback? Yeah, last night.
+      Thought you left this morning
+  - me  : |
+      No, it's my day off.
+      Are you parents around?
+    npc : Yeah, let me call them for you.
+  - me : Thanks.
+    npc: #[load missing other npcs]

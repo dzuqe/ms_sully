@@ -1,0 +1,12 @@
+name  : Memorial Hospital
+image : "https://www.esht.nhs.uk/wp-content/uploads/2017/04/6.-Main-Reception-Desk-1200x816.jpg"
+people:
+  - !include andy.yaml 
+  - !include lisa.yaml 
+stuff:
+  - name  : Defibrillator
+    image : "https://image.made-in-china.com/202f0j00RZYTvFhwrjqi/Medical-Automatic-Pacing-Aed-Defibrillator-D3-.jpg"
+  - name  : Covid Mask
+    image : "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.insidehook.com%2Fwp-content%2Fuploads%2F2020%2F02%2FCoronavirus_mask.jpg%3Ffit%3D1800%252C1200&f=1&nofb=1"
+  - name  : Asthma pump
+    image : "https://images.fineartamerica.com/images-medium-large-5/asthma-inhaler-mark-thomasscience-photo-library.jpg"

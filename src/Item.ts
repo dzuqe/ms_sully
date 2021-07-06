@@ -1,3 +1,5 @@
+import INpc from './INpc'
+
 class Item
 {
   name: string;
@@ -9,6 +11,16 @@ class Item
   {
     this.name = name;
     this.image = image;
+  }
+
+  rcvItem(item: Item)
+  {
+  
+  }
+
+  giveItem(id: number, npc: INpc)
+  {
+  
   }
 
 }

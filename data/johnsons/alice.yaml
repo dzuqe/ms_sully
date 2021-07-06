@@ -1,0 +1,20 @@
+name  : Alice Crawford
+image : "https://i.pinimg.com/originals/ee/44/5d/ee445d4a5a6c54dcef797e673fac5a5b.jpg"
+dialogue:
+  - me  : Hey
+    npc :
+      - Hi, welcome to the neighborheid
+      - Our last neighbor was such a nuissance.
+      - I hope we won't be experiencing the same from you.
+  - me  :
+      - Err. Thanks.
+      - Woke up today and my car's missing?
+    npc: |
+      Whoa, are you sure it didn't get repossesed?
+  - me  :
+    - Ahgh. Lady. I'm having a traumatic experience.
+    - I'm looking for car and err, 
+    - I'll just speak to your husband.
+    - You're frustrating me
+    npc : |
+      right.

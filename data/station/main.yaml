@@ -1,0 +1,16 @@
+name  : Local Police County
+image : "https://thenewswheel.com/wp-content/uploads/2015/06/Police-Station.jpg"
+people:
+  - name  : Cop
+    image : "http://www.oyetimes.com/wp-content/uploads/2018/06/image-29.jpg"
+    dialogue:
+      - me  : Hey little man.
+        npc : sup old man.
+    stuff:
+      - name  : Taser
+        image : "https://cdn11.bigcommerce.com/s-9j9zreeu/images/stencil/1280x1280/products/51249/154265/X26P_LSide__84735.1539275274.jpg?c=2?imbypass=on"
+  - name  : Prisoner
+    image : "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.WKb7DmFfcRXJHpmYV-kZWgHaJQ%26pid%3DApi&f=1u"
+    dialogue:
+      - me  : Hey little man.
+        npc : sup old man.

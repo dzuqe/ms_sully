@@ -34,7 +34,12 @@ class LocationManager
         var stuff: Item[] = new Array();
         
         for (var p in loc.people) {
-          npcs.push(new Npc(loc.people[p].name, loc.people[p].image));
+          let person = loc.people[p];
+          var items: Item[] = new Array();
+          for (var k in person.stuff) {
+             items.push(new Item(person.stuff[k].name, person.stuff[k].image));
+          }
+          npcs.push(new Npc(person.name, person.image, person.dialogue, items));
         }
   
         for (var s in loc.stuff) {
